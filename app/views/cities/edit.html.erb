@@ -1,0 +1,32 @@
+<div class="container">
+<h1 class="text-center">  Edit City </h1>
+<%= form_for @city do |f| %>
+  <% if @city.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@city.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @city.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country_name%>
+    <%= f.text_field :country_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :time_zone%>
+    <%= f.text_field :time_zone, class: "form-control" %>
+  </div>
+  <%= f.submit "Edit City", class: "btn btn-primary" %>
+  <a href="<%= cities_path %>" class="btn btn-default"> View all </a>
+<% end %>
+</div>

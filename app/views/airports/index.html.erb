@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center"> Airports </h1>
+  <section class="row text-center">
+      <a href="<%= new_airport_path %>" class="btn btn-default"> New Airport </a>
+  </section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Airport name</th>
+        <th class="text-center">City name</th>
+        <th class="text-center">Country name</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @airports.each do |a| %>
+        <tr>
+          <td class="text-center"><%= a.name %></td>
+          <td class="text-center"><%= a.city.name %></td>
+          <td class="text-center"><%= a.city.country_name %></td>
+          <td class="text-center">
+            <a href="<%= edit_airport_path(a.id) %>" class="btn btn-circle btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-circle btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+          </td>
+        </tr>
+      <% end if @airports.any? %>
+    </tbody>
+  </table>
+
+</div>

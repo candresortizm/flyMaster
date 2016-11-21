@@ -3,14 +3,28 @@
   <section class="row text-center cities-controls">
       <a href="<%= new_city_path %>" class="btn btn-default"> New City </a>
   </section>
-  <% @cities.each do |c| %>
-    <article class="row city">
-      <ul>
-        <li class="col-md-3"><strong><%= c.name %></strong></li>
-        <li class="col-md-3"><%= c.country_name %></li>
-        <li class="col-md-3"><%= c.time_zone %></li>
-        <li class="col-md-3"><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
-      </ul>
-    </article>
-  <% end if @cities.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">City name</th>
+        <th class="text-center">Country name</th>
+        <th class="text-center">Tim zone</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cities.each do |c| %>
+        <tr>
+          <td class="text-center"><%= c.name %></td>
+          <td class="text-center"><%= c.country_name %></td>
+          <td class="text-center"><%= c.time_zone %></td>
+          <td class="text-center">
+            <a href="<%= edit_city_path(c.id) %>" class="btn btn-circle btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-circle btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+          </td>
+        </tr>
+      <% end if @cities.any? %>
+    </tbody>
+  </table>
+
 </div>

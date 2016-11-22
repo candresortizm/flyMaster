@@ -1,0 +1,18 @@
+<div class="container">
+<h1 class="text-center">  Show Airport </h1>
+<%= form_for @airport do |f| %>
+  <div class="form-group">
+    <%= f.label :name%>
+    <input type="text" value="<%= @airport.name %>" class="form-control" readonly>
+  </div>
+  <div class="form-group">
+    <%= f.label "Ciudad"%>
+    <input type="text" value="<%= @airport.city.name %>" class="form-control" readonly>
+  </div>
+  <div class="form-group">
+    <%= f.label "País"%>
+    <input type="text" value="<%= @airport.city.country_name %>" class="form-control" readonly>
+  </div>
+  <a href="<%= cities_path %>" class="btn btn-default"> Back </a>
+<% end %>
+</div>

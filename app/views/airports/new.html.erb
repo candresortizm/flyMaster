@@ -19,11 +19,11 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.select(:city_id) do %>
-        <% @cities.each do |c| -%>
-        <%= content_tag(:option, c.name, value: c.id) %>
-      <% end %>
-    <% end %>
+    <select class="form-control">
+      <% @cities.each do |c| %>
+        <option value="<%=c .id %>"><%=  c.name %></option>
+      <%end%>
+    </select>
   </div>
   <%= f.submit "Create Airport", class: "btn btn-primary" %>
   <a href="<%= airports_path %>" class="btn btn-default"> View all </a>

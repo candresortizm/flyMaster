@@ -1,6 +1,6 @@
 <div class="container">
 <h1 class="text-center">  Edit City </h1>
-<%= form_for @city do |f| %>
+<%= form_for @city , method: :put do |f| %>
   <% if @city.errors.any? %>
       <div id="error_explanation">
         <h2>

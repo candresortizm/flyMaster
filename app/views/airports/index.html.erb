@@ -21,6 +21,7 @@
           <td class="text-center">
             <a href="<%= edit_airport_path(a.id) %>" class="btn btn-circle btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
             <a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-circle btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+            <a href="<%= airport_path(a.id) %>" class="btn btn-circle btn-info"><span class="glyphicon glyphicon-search"></span></a>
           </td>
         </tr>
       <% end if @airports.any? %>

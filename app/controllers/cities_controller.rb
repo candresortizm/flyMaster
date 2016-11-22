@@ -21,9 +21,17 @@ class CitiesController < ApplicationController
     @city = City.find_by(id: params[:id])
   end
 
+  def show
+    @city = City.find_by(id: params[:id])
+    if @city.nil?
+      flash[:error] = "Problemas"
+      redirect_to root_path
+    end
+  end
+
   def update
     @city = City.find_by(id: params[:id])
-    if @city.update_attributes(city_params)
+    if @city.update(city_params)
       redirect_to cities_path
     else
       render 'edit'

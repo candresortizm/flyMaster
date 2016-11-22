@@ -9,6 +9,14 @@ class AirportsController < ApplicationController
     @airport = Airport.new
   end
 
+  def show
+    @airport = Airport.find_by(id: params[:id])
+    if @airport.nil?
+      flash[:error] = "Problemas"
+      redirect_to root_path
+    end
+  end
+
   def create
     @airport = Airport.new(airport_params)
     if @airport.save
@@ -25,7 +33,7 @@ class AirportsController < ApplicationController
 
   def update
     @airport = Airport.find_by(id: params[:id])
-    if @airport.update_attributes(airport_params)
+    if @airport.update(airport_params)
       redirect_to airports_path
     else
       render 'edit'

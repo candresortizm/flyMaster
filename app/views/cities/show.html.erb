@@ -1,0 +1,18 @@
+<div class="container">
+<h1 class="text-center">  Show City </h1>
+<%= form_for @city do |f| %>
+  <div class="form-group">
+    <%= f.label :name%>
+    <input type="text" value="<%= @city.name %>" class="form-control" readonly>
+  </div>
+  <div class="form-group">
+    <%= f.label :country_name%>
+    <input type="text" value="<%= @city.country_name %>" class="form-control" readonly>
+  </div>
+  <div class="form-group">
+    <%= f.label :time_zone%>
+    <input type="text" value="<%= @city.time_zone %>" class="form-control" readonly>
+  </div>
+  <a href="<%= cities_path %>" class="btn btn-default"> Back </a>
+<% end %>
+</div>

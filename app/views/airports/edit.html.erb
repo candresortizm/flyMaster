@@ -1,6 +1,6 @@
 <div class="container">
 <h1 class="text-center">  Edit Airport </h1>
-<%= form_for @airport do |f| %>
+<%= form_for @airport , method: :put do |f| %>
   <% if @airport.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -20,7 +20,7 @@
   </div>
   <div class="form-group">
     <%= f.select(:city_id) do %>
-        <% @cities.each do |c| -%>
+        <% @cities.each do |c| %>
         <%= content_tag(:option, c.name, value: c.id) %>
       <% end %>
     <% end %>
